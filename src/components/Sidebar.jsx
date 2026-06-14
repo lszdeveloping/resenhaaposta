@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { IconBets, IconRanking } from './Icons'
+import { IconBets, IconRanking, IconFriends } from './Icons'
 
 const links = [
   { to: '/', label: 'Minhas apostas', icon: IconBets, end: true },
+  { to: '/apostas', label: 'Apostas dos amigos', icon: IconFriends },
   { to: '/ranking', label: 'Ranking', icon: IconRanking },
 ]
 

@@ -12,6 +12,17 @@ export async function listMyBets(userId) {
   return data
 }
 
+// Todas as apostas de todos os usuarios (com nome do dono).
+export async function listAllBets() {
+  const { data, error } = await supabase
+    .from('bets')
+    .select('*, user:app_users(id, name)')
+    .order('bet_date', { ascending: false })
+    .order('created_at', { ascending: false })
+  if (error) throw error
+  return data
+}
+
 // payload: { user_id, title, description, bet_date, stake, odd, status }
 export async function createBet(payload) {
   const { data, error } = await supabase
